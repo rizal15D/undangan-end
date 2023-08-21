@@ -101,7 +101,9 @@ body {
 }
 
 .home h2,
-.info h2 {
+.info h2,
+.story h2,
+.gallery h2 {
   color: var(--pink);
   font-family: "Sacramento", cursive;
   font-size: 5rem;
@@ -114,7 +116,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.home .p {
+.home p {
   color: #666;
   font-size: 1.1rem;
 }
@@ -186,6 +188,129 @@ body {
   font-weight: 300;
 }
 
+.story,
+.gallery {
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+}
+
+.story span,
+.gallery span {
+  text-transform: uppercase;
+  color: #666;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.story p,
+.gallery p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.timeline {
+  list-style: none;
+  padding: 1.4rem 0;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: 1px;
+  background-color: black;
+  left: 50%;
+}
+
+.timeline li {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.timeline li .timeline-panel {
+  width: 40%;
+  float: left;
+  border: 1px solid #ccc;
+  padding: 2rem;
+  position: relative;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.timeline li .timeline-image {
+  width: 160px;
+  height: 160px;
+  background-color: #ccc;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.timeline li::before,
+.timeline li::after {
+  content: "";
+  display: table;
+}
+
+.timeline li::after {
+  clear: both;
+}
+
+.timeline li .timeline-panel::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  border-top: 15px solid transparent;
+  border-right: 0px solid #ccc;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #ccc;
+  top: 80px;
+  right: -15px;
+}
+
+.timeline li .timeline-panel::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  border-top: 14px solid transparent;
+  border-right: 0px solid #fff;
+  border-bottom: 14px solid transparent;
+  border-left: 14px solid #fff;
+  top: 81px;
+  right: -13px;
+}
+
+.timeline li.timeline-inverted .timeline-panel {
+  float: right;
+}
+
+.timeline li.timeline-inverted .timeline-panel::before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
+}
+
+.timeline li.timeline-inverted .timeline-panel::after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -13px;
+  right: auto;
+}
+
+.gallery {
+  background-color: #fdc4dd;
+}
+
 /* Media Query */
 
 /* extra large */
@@ -207,6 +332,35 @@ body {
   .home .couple .heart {
     display: none;
   }
+
+  .timeline::before {
+    left: 60px;
+  }
+
+  .timeline li .timeline-image {
+    left: 15px;
+    margin-left: 45px;
+    top: 15px;
+  }
+
+  .timeline li .timeline-panel {
+    width: calc((100% - 200px));
+    float: right;
+  }
+
+  .timeline li .timeline-panel::before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+  }
+
+  .timeline li .timeline-panel::after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+  }
 }
 
 /* tablet */
@@ -224,6 +378,15 @@ body {
     font-size: 2rem;
     text-align: center;
   }
+
+  .sticky-top {
+    overflow: hidden;
+  }
+
+  .timeline li .timeline-image {
+    width: 140px;
+    height: 140px;
+  }
 }
 
 /* mobile phone */
@@ -234,5 +397,26 @@ body {
   .simply-countdown > .simply-section {
     padding: 45px;
     margin: 3px;
+  }
+  .timeline li .timeline-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .timeline li .timeline-panel {
+    width: 60%;
+    transform: translateX(-20px);
+  }
+
+  .timeline li .timeline-panel::before {
+    top: 40px;
+  }
+  .timeline li .timeline-panel::after {
+    top: 41px;
+  }
+
+  .timeline li .timeline-image {
+    width: 100px;
+    height: 100px;
   }
 }
